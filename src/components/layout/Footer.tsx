@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaWhatsapp, FaGlobe } from 'react-icons/fa';
 import { ContactButton } from './ContactButton';
 

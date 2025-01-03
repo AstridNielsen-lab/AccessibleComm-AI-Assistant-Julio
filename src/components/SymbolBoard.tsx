@@ -91,10 +91,7 @@ export function SymbolBoard() {
           ))}
         </div>
 
-        <SymbolChatInput
-          onSendMessage={handleSendMessage}
-          onSymbolSelect={handleSymbolSelect}
-        />
+        <SymbolChatInput onSendMessage={handleSendMessage} />
         
         <div className="flex gap-2 mb-4 flex-wrap mt-6">
           <button

@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import { Symbol } from '../../data/symbols';
 import { VirtualKeyboard } from '../keyboard/VirtualKeyboard';
 
 interface SymbolChatInputProps {
   onSendMessage: (message: string) => void;
-  onSymbolSelect: (symbol: Symbol) => void;
 }
 
-export function SymbolChatInput({ onSendMessage, onSymbolSelect }: SymbolChatInputProps) {
+export function SymbolChatInput({ onSendMessage }: SymbolChatInputProps) {
   const [inputText, setInputText] = useState('');
 
   const handleKeyPress = (key: string) => {
