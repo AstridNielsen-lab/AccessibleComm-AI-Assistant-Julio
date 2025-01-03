@@ -3,11 +3,12 @@ import { TextToSpeech } from './components/TextToSpeech';
 import { SpeechToText } from './components/SpeechToText';
 import { SymbolBoard } from './components/SymbolBoard';
 import { AIChatInterface } from './components/AIChatInterface';
+import { Footer } from './components/layout/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="max-w-3xl mx-auto px-4">
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-3xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-center mb-8">
           Accessible Communication
         </h1>
@@ -34,6 +35,8 @@ function App() {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 }
