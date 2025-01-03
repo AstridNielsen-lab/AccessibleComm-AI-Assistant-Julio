@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSpeechRecognition } from '../hooks/useSpeechRecognition';
 
 export function SpeechToText() {

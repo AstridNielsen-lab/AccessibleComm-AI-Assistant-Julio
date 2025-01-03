@@ -1,4 +1,3 @@
-import React from 'react';
 import { Header } from './components/layout/Header';
 import { Container } from './components/layout/Container';
 import { Card } from './components/layout/Card';
@@ -8,7 +7,7 @@ import { SpeechToText } from './components/SpeechToText';
 import { SymbolBoard } from './components/SymbolBoard';
 import { AIChatInterface } from './components/AIChatInterface';
 
-function App() {
+export default function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
@@ -37,5 +36,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSpeechSynthesis } from '../hooks/useSpeechSynthesis';
 
 export function TextToSpeech() {
