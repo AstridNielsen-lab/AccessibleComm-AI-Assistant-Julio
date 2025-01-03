@@ -12,11 +12,11 @@ export function ContactButton({ href, icon, label }: ContactButtonProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+      className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors w-full sm:w-auto"
       aria-label={`Contact via ${label}`}
     >
       {icon}
-      <span>{label}</span>
+      <span className="font-medium">{label}</span>
     </a>
   );
 }

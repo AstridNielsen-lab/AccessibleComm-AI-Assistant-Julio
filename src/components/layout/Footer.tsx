@@ -4,37 +4,38 @@ import { ContactButton } from './ContactButton';
 
 export function Footer() {
   return (
-    <footer className="bg-white shadow-md mt-8">
-      <div className="max-w-3xl mx-auto px-4 py-6">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Logo */}
+    <footer className="bg-white shadow-md mt-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center">
             <img 
-              src="https://static.wixstatic.com/media/ef3e67_051e5ffb7c6d471fb4d8a71b831a7d19~mv2.png/v1/fill/w_387,h_387,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo%20like%20look%20solutions%20trasparent.png"
+              src="https://static.wixstatic.com/media/ef3e67_051e5ffb7c6d471fb4d8a71b831a7d19~mv2.png"
               alt="Like Look Solutions Logo"
-              className="h-16 w-auto"
+              className="h-12 w-auto sm:h-16"
             />
           </div>
 
-          {/* Contact Buttons */}
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <ContactButton
               href="https://wa.me/5511970603441"
-              icon={<FaWhatsapp />}
+              icon={<FaWhatsapp className="text-xl" />}
               label="WhatsApp"
             />
             <ContactButton
               href="https://likelook.wixsite.com/solutions"
-              icon={<FaGlobe />}
+              icon={<FaGlobe className="text-xl" />}
               label="Website"
             />
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="text-center mt-4 text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} Like Look Solutions. All rights reserved.</p>
-          <p>Developed by Julio Campos Machado</p>
+        <div className="text-center mt-4 space-y-1">
+          <p className="text-sm text-gray-600">
+            © {new Date().getFullYear()} Like Look Solutions. All rights reserved.
+          </p>
+          <p className="text-sm text-gray-500">
+            Developed by Julio Campos Machado
+          </p>
         </div>
       </div>
     </footer>
