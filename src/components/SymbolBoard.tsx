@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { speakText } from '../utils/speech';
 import { symbols, Symbol } from '../data/symbols';
 import { SymbolChatInput } from './chat/SymbolChatInput';
 import { AIService } from '../services/aiService';
 
+/**
+ * Groups symbols by their category
+ */
 function groupSymbolsByCategory(symbols: Symbol[]): Map<string, Symbol[]> {
   return symbols.reduce((acc, symbol) => {
     const category = acc.get(symbol.category) || [];
@@ -13,6 +16,9 @@ function groupSymbolsByCategory(symbols: Symbol[]): Map<string, Symbol[]> {
   }, new Map<string, Symbol[]>());
 }
 
+/**
+ * Individual symbol button component
+ */
 function SymbolButton({ symbol, onClick }: { symbol: Symbol; onClick: (symbol: Symbol) => void }) {
   return (
     <button
@@ -29,6 +35,9 @@ function SymbolButton({ symbol, onClick }: { symbol: Symbol; onClick: (symbol: S
   );
 }
 
+/**
+ * Category section component
+ */
 function CategorySection({ 
   title, 
   symbols, 
@@ -50,6 +59,9 @@ function CategorySection({
   );
 }
 
+/**
+ * Main SymbolBoard component
+ */
 export function SymbolBoard() {
   const symbolsByCategory = groupSymbolsByCategory(symbols);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -61,9 +73,11 @@ export function SymbolBoard() {
   };
 
   const handleSendMessage = async (message: string) => {
+    // Add user message
     setMessages(prev => [...prev, { text: message, isAI: false }]);
 
     try {
+      // Get AI response
       const response = await AIService.generateResponse(message);
       setMessages(prev => [...prev, { text: response.response, isAI: true }]);
       speakText(response.response);
@@ -77,6 +91,7 @@ export function SymbolBoard() {
       <div>
         <h2 className="text-xl font-semibold mb-4">Communication Board</h2>
         
+        {/* Messages display */}
         <div className="mb-4 border rounded-md p-4 max-h-[300px] overflow-y-auto bg-gray-50">
           {messages.map((msg, idx) => (
             <div
@@ -91,8 +106,13 @@ export function SymbolBoard() {
           ))}
         </div>
 
-        <SymbolChatInput onSendMessage={handleSendMessage} />
+        {/* Symbol Chat Input */}
+        <SymbolChatInput
+          onSendMessage={handleSendMessage}
+          onSymbolSelect={handleSymbolSelect}
+        />
         
+        {/* Category selector */}
         <div className="flex gap-2 mb-4 flex-wrap mt-6">
           <button
             onClick={() => setSelectedCategory(null)}
@@ -120,6 +140,7 @@ export function SymbolBoard() {
         </div>
       </div>
 
+      {/* Symbol grid */}
       <div className="space-y-6">
         {selectedCategory ? (
           <CategorySection

@@ -1,12 +1,18 @@
-import { useState } from 'react';
-import { useSpeechSynthesis } from '../hooks/useSpeechSynthesis';
+import React, { useState } from 'react';
 
 export function TextToSpeech() {
   const [text, setText] = useState('');
-  const { speak, isSpeaking } = useSpeechSynthesis();
+
+  const speak = () => {
+    if ('speechSynthesis' in window) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      window.speechSynthesis.speak(utterance);
+    }
+  };
 
   return (
     <div className="space-y-4">
+      <h2 className="text-xl font-semibold">Text to Speech</h2>
       <textarea
         className="w-full p-2 border rounded-md"
         value={text}
@@ -15,12 +21,11 @@ export function TextToSpeech() {
         aria-label="Text to speak"
       />
       <button
-        onClick={() => speak(text)}
-        disabled={isSpeaking}
-        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-blue-400"
+        onClick={speak}
+        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         aria-label="Speak text"
       >
-        {isSpeaking ? 'Speaking...' : 'Speak'}
+        Speak
       </button>
     </div>
   );

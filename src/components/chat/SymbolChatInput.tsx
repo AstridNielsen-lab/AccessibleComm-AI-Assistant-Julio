@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Symbol } from '../../data/symbols';
 import { VirtualKeyboard } from '../keyboard/VirtualKeyboard';
 
 interface SymbolChatInputProps {
   onSendMessage: (message: string) => void;
+  onSymbolSelect: (symbol: Symbol) => void;
 }
 
-export function SymbolChatInput({ onSendMessage }: SymbolChatInputProps) {
+export function SymbolChatInput({ onSendMessage, onSymbolSelect }: SymbolChatInputProps) {
   const [inputText, setInputText] = useState('');
 
   const handleKeyPress = (key: string) => {
@@ -25,12 +27,15 @@ export function SymbolChatInput({ onSendMessage }: SymbolChatInputProps) {
 
   return (
     <div className="space-y-4">
+      {/* Input display */}
       <div className="border rounded-md p-3 min-h-[60px] bg-white">
         {inputText || 'Type your message...'}
       </div>
 
+      {/* Virtual Keyboard */}
       <VirtualKeyboard onKeyPress={handleKeyPress} />
 
+      {/* Send button */}
       <button
         onClick={handleSend}
         className="w-full py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"

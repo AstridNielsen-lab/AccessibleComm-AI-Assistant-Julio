@@ -1,38 +1,41 @@
-import { Header } from './components/layout/Header';
-import { Container } from './components/layout/Container';
-import { Card } from './components/layout/Card';
-import { Footer } from './components/layout/Footer';
+import React from 'react';
 import { TextToSpeech } from './components/TextToSpeech';
 import { SpeechToText } from './components/SpeechToText';
 import { SymbolBoard } from './components/SymbolBoard';
 import { AIChatInterface } from './components/AIChatInterface';
 
-export default function App() {
+function App() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      <Header />
-      
-      <main className="flex-grow py-8">
-        <Container>
-          <Card title="AI Chat Assistant">
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-3xl mx-auto px-4">
+        <h1 className="text-3xl font-bold text-center mb-8">
+          Accessible Communication
+        </h1>
+        
+        <div className="space-y-8">
+          {/* AI Chat Interface */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <AIChatInterface />
-          </Card>
+          </div>
           
-          <Card title="Text to Speech">
+          {/* Text to Speech Component */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <TextToSpeech />
-          </Card>
+          </div>
           
-          <Card title="Speech to Text">
+          {/* Speech to Text Component */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <SpeechToText />
-          </Card>
+          </div>
           
-          <Card title="Symbol Communication Board">
+          {/* Symbol Board Component */}
+          <div className="bg-white p-6 rounded-lg shadow-md">
             <SymbolBoard />
-          </Card>
-        </Container>
-      </main>
-      
-      <Footer />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+
+export default App;
