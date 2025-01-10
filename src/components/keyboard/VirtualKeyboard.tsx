@@ -1,10 +1,10 @@
-import React from 'react';
+import { type FC } from 'react';
 
 interface VirtualKeyboardProps {
   onKeyPress: (key: string) => void;
 }
 
-export function VirtualKeyboard({ onKeyPress }: VirtualKeyboardProps) {
+export const VirtualKeyboard: FC<VirtualKeyboardProps> = ({ onKeyPress }) => {
   const rows = [
     ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'],
     ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'],
@@ -42,4 +42,4 @@ export function VirtualKeyboard({ onKeyPress }: VirtualKeyboardProps) {
       </div>
     </div>
   );
-}
+};

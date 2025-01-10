@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 export function SpeechToText() {
   const [isListening, setIsListening] = useState(false);
   const [transcript, setTranscript] = useState('');
-  const [recognition, setRecognition] = useState<SpeechRecognition | null>(null);
+  const [recognition, setRecognition] = useState<any | null>(null);
 
   useEffect(() => {
     if ('webkitSpeechRecognition' in window) {
-      const recognition = new webkitSpeechRecognition();
+      const SpeechRecognition = (window as any).webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
       recognition.continuous = true;
       recognition.interimResults = true;
 
-      recognition.onresult = (event) => {
+      recognition.onresult = (event: any) => {
         const current = event.resultIndex;
         const transcript = event.results[current][0].transcript;
         setTranscript(transcript);

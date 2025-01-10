@@ -1,10 +1,9 @@
-import React from 'react';
 import { TextToSpeech } from './components/TextToSpeech';
 import { SpeechToText } from './components/SpeechToText';
 import { SymbolBoard } from './components/SymbolBoard';
 import { AIChatInterface } from './components/AIChatInterface';
 
-function App() {
+export default function App() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-3xl mx-auto px-4">
@@ -37,5 +36,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

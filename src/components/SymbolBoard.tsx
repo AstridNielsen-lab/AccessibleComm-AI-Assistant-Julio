@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { speakText } from '../utils/speech';
 import { symbols, Symbol } from '../data/symbols';
 import { SymbolChatInput } from './chat/SymbolChatInput';
